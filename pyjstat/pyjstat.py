@@ -296,7 +296,8 @@ def generate_df(js_dict, naming, value="value"):
                           index=range(0, len(values)))
     for i, category in enumerate(get_df_row(dimensions, naming)):
         output.loc[i] = category + [values[i]]
-    output = output.convert_objects(convert_numeric=True)
+    #Set to False to avoid problems with data from Statistics Sweden.
+    output = output.convert_objects(convert_numeric=False)
     return output
 
 
